@@ -1,10 +1,5 @@
 use std::{convert::TryFrom, fmt};
 
-#[cfg(feature = "arbitrary")]
-use arbitrary::Arbitrary;
-
-use super::coding::{self, Codec, UnexpectedEnd};
-
 /// An integer less than 2^62
 ///
 /// Values of this type are suitable for encoding as QUIC variable-length integer.
