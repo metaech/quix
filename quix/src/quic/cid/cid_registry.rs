@@ -531,9 +531,9 @@ mod test {
         let mut reset_bytes = [0; 16];
         rand::thread_rng().fill_bytes(&mut reset_bytes[..16]);
         let scid2 = generator.generate_cid();
-        let resetToken2 = ResetToken::new_with(&reset_bytes);
+        let reset_token2 = ResetToken::new_with(&reset_bytes);
         assert_eq!(
-            scids.new_cid(scid2, Some(resetToken2), true, None, false),
+            scids.new_cid(scid2, Some(reset_token2), true, None, false),
             Ok(1)
         );
         assert_eq!(scids.available_cids(), 1);
@@ -544,10 +544,10 @@ mod test {
         let mut reset_bytes = [0; 16];
         rand::thread_rng().fill_bytes(&mut reset_bytes[..16]);
         let scid3 = generator.generate_cid();
-        let resetToken3 = ResetToken::new_with(&reset_bytes);
+        let reset_token3 = ResetToken::new_with(&reset_bytes);
 
         assert_eq!(
-            scids.new_cid(scid3, Some(resetToken3), true, None, false),
+            scids.new_cid(scid3, Some(reset_token3), true, None, false),
             Ok(2)
         );
         assert_eq!(scids.available_cids(), 2);
@@ -558,9 +558,9 @@ mod test {
         let mut reset_bytes = [0; 16];
         rand::thread_rng().fill_bytes(&mut reset_bytes[..16]);
         let scid4 = generator.generate_cid();
-        let resetToken4 = ResetToken::new_with(&reset_bytes);
+        let reset_token4 = ResetToken::new_with(&reset_bytes);
         assert_eq!(
-            scids.new_cid(scid4, Some(resetToken4), true, None, false),
+            scids.new_cid(scid4, Some(reset_token4), true, None, false),
             Err(Error::IdLimit),
         );
         assert_eq!(scids.available_cids(), 2);

@@ -6,6 +6,12 @@ use std::{
 
 use bytes::{Buf, BufMut, Bytes, BytesMut};
 
+use cid::ConnectionId;
+
+#[cfg(feature = "arbitrary")]
+use arbitrary::Arbitrary;
+use tinyvec::TinyVec;
+
 use super::{
     cid,
     coding::{self, BufExt, BufMutExt, UnexpectedEnd},
@@ -21,7 +27,6 @@ use qbase::varint::{
     ext::{BufExt as VarIntBufExt, BufMutExt as VarIntBufMutExt},
     VarInt,
 };
-use tinyvec::TinyVec;
 
 #[derive(Copy, Clone, Eq, PartialEq)]
 pub struct Type(u64);
