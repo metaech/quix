@@ -1,5 +1,8 @@
 use std::{convert::TryFrom, fmt};
 
+#[cfg(feature = "arbitrary")]
+use arbitrary::Arbitrary;
+
 /// An integer less than 2^62
 ///
 /// Values of this type are suitable for encoding as QUIC variable-length integer.
@@ -173,13 +176,14 @@ pub mod ext {
     }
 }
 
+#[cfg(test)]
 mod tests {
     use super::{
         err,
         ext::{BufExtVarint, BufMutExtVarint},
         VarInt,
     };
-    use bytes::{Buf, BufMut};
+    use bytes::BufMut;
 
     #[test]
     fn reading_varint() {
