@@ -8,7 +8,6 @@ mod quic {
     mod frames;
     mod range_set;
     mod stream;
-    mod varint;
 }
 
 pub fn add(left: usize, right: usize) -> usize {
