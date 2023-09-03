@@ -14,7 +14,7 @@ use crate::quic::{
     frames::ResetToken,
 };
 
-const MAX_CID_SIZE: usize = 20;
+pub(crate) const MAX_CID_SIZE: usize = 20;
 
 #[derive(Clone, Copy, Eq, PartialEq, Hash, Default)]
 pub struct ConnectionId {
